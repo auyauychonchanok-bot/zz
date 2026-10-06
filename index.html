@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>ฝ่าด่านการบวก พิชิตปราสาท</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Mitr', sans-serif; user-select: none; margin: 0; padding: 0; }
+
+    html, body {
+      width: 100%; height: 100%;
+      background-color: #0d0e15; position: relative;
+      overflow: hidden;
+    }
+
+    /* 🌟 LOGO ด้านบนมุมซ้าย */
+    .app-logo {
+      position: fixed; top: 10px; left: 10px; z-index: 200;
+      height: clamp(35px, 6vh, 55px); width: auto;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+      pointer-events: none;
+    }
+
+    /* Audio Toggle */
+    .audio-toggle {
+      position: fixed; top: 10px; right: 10px; z-index: 200;
+      width: clamp(35px, 6vh, 45px); height: clamp(35px, 6vh, 45px);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.7); border: 2px solid #f1c40f;
+      color: #fff; font-size: clamp(1rem, 2.5vh, 1.3rem);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
+    /* Canvas สำหรับดวงไฟลอยและพลุ */
+    #orbs-canvas, #fireworks-canvas {
+      position: fixed; inset: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+    }
+    #orbs-canvas { z-index: 2; }
+    #fireworks-canvas { z-index: 400; }
+
+    /* 🌟 POPUP FEEDBACK ICON */
+    #feedback-overlay {
+      position: fixed; inset: 0; z-index: 500;
+      display: none; align-items: center; justify-content: center;
+      pointer-events: none;
+    }
+    .feedback-icon-box {
+      width: 120px; height: 120px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      transform: scale(0); opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .feedback-icon-box.show-correct {
+      background: linear-gradient(145deg, #2ecc71, #27ae60);
+      border
